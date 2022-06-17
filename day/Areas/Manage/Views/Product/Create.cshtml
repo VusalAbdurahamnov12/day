@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+@model Product
+
+<div class="container-fluid">
+    <form method="post" enctype='multipart/form-data'>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" >
+            </div>
+                <div class="form-group col-md-6">
+                <label asp-for="Description"></label>
+                <input asp-for="Description" class="form-control" >
+            </div>
+                <div class="form-group col-md-6">
+                <label asp-for="Photo"></label>
+                <input asp-for="Photo" class="form-control" >
+            </div>
+                
+                <div class="form-group col-md-6">
+                <label asp-for="Link"></label>
+                <input asp-for="Link" class="form-control" >
+            </div>
+            <select asp-for="CategoryId" asp-items="ViewBag.Products"></select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+</div>
+
+
+

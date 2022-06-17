@@ -1,0 +1,43 @@
+﻿
+
+
+@model List<Product>
+
+
+<div class="container-fluid">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <h1>Tables</h1>
+        <a asp-action="Create"  class="btn btn-primary">Create</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">CategoryName</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">image</th>
+                <th scope="col">Link</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <th scope="row">@category.Id</th>
+                    <td>@category.Category.Name</td>
+                    <td scope="row">@category.Title</td>
+                    <td><img src="~/assets/images/@category.Image" style="width:50px" height="50px"></td>
+                    <td scope="row">@category.Link</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@category.Id" class="btn btn-warning">Edit</a>
+                        <a type="submit" asp-action="Delete"  asp-route-id="@category.Id" class="btn btn-danger btn-sweet-delete">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
